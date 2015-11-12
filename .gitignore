@@ -1,0 +1,8 @@
+# Don't track any of latex's various helper files, just the tex files
+*.aux
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.toc
