@@ -1,0 +1,53 @@
+\section{Status}
+\label{ch:Status}
+
+\begin{frame}{Status}
+From last time, we discussed a few items, namely:
+
+\begin{itemize}
+	\item Bad matching with Data Derived Bunch z-profiles
+		\begin{itemize}
+			\item Could this be because bunch models are not overlapping at z = 0?
+			\item Are Beam Profiles appropriately centered?
+		\end{itemize}
+	\item Can we improve performance with a simple lookup, as opposed to TGraph::Eval?
+	\item Profiles might introduce artifacts resembling crossing angles/different
+		values for $\beta^{*}$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Progress}
+	\begin{itemize}
+    \item Density lookup has been implemented, code now runs nice and fast
+		\item Direct comparison between beam profiles from WCM data + simple model
+			are ready - maybe this provides some insight?
+		\item Studied bunch profiles - although all profiles line up relative to
+			each-other, the maximum of the bunch profile was not centered.
+		\item New method:
+			\begin{itemize}
+				\item Find global maxima in WCM profile
+				\item Build profile starting from the center, moving left and right
+				\item Stop when we hit the edge of the data set
+				\item The rest of the profile is set to "0"
+				\item Possible option (to account for beam gas, peripheral bunch
+					distributions in Z):
+					\begin{itemize}
+						\item Sample background of WCM profile, and fill the peripheral bunch
+							distribution with random fluctuations based on sampled region
+					\end{itemize}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Issues}
+There are still remaining issues with the simulation, the z-profile in the ZDC
+z-vertex distribution is still not matching nicely when we use the WCM data
+directly. Some thoughts:
+	\begin{itemize}
+    \item Have we selected an appropriate interaction time?
+    \item Is $\beta^{*}$ correction applied correctly to the width?
+    \item Could binning be effecting the final profile?
+    \item Should the old model even be used as a bench-mark?
+	\end{itemize}
+\end{frame}
