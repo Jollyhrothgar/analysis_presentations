@@ -2,19 +2,27 @@
 \label{ch:Status}
 
 \begin{frame}{Status}
-From last time, we discussed a few items, namely:
-
+	\textbf{From last time:}
 \begin{itemize}
-	\item Bad matching with Data Derived Bunch z-profiles
+	\item Initial trials with Data Derived Bunch z-profiles results in bad matching
 		\begin{itemize}
 			\item Could this be because bunch models are not overlapping at z = 0?
 			\item Are Beam Profiles appropriately centered?
+			\item It would be nice to determine, before exhaustive iteration, if
+				these profiles are even viable (more on this later)
 		\end{itemize}
 	\item Can we improve performance with a simple lookup, as opposed to TGraph::Eval?
 	\item Profiles might introduce artifacts resembling crossing angles/different
 		values for $\beta^{*}$.
 \end{itemize}
-
+\textbf{To Do:}
+\begin{itemize}
+	\item Confirm that bunches are interacting over the right amount of time
+	\item Confirm that new centering of the bunches results in beam overlap at
+		z=0 occurs at the global maximum of the bunch profile
+	\item Explore options for convergence with the new bunch profiles, compare
+		to old profiles
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Progress}
@@ -37,17 +45,5 @@ From last time, we discussed a few items, namely:
 							distribution with random fluctuations based on sampled region
 					\end{itemize}
 			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Issues}
-There are still remaining issues with the simulation, the z-profile in the ZDC
-z-vertex distribution is still not matching nicely when we use the WCM data
-directly. Some thoughts:
-	\begin{itemize}
-    \item Have we selected an appropriate interaction time?
-    \item Is $\beta^{*}$ correction applied correctly to the width?
-    \item Could binning be effecting the final profile?
-    \item Should the old model even be used as a bench-mark?
 	\end{itemize}
 \end{frame}

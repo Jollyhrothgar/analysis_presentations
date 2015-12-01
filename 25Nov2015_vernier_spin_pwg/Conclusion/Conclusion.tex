@@ -3,14 +3,15 @@
 
 \begin{frame}{Concluding Remarks}
 \begin{itemize}
-\item Still some bugs to work out in the simulation, but not sure how to move
-forward.
-\item Simulation code has one-to-one correspondence between structures and
-transformations between the models - the only difference is between the new
-model, and old model, is the z-profile used.
-\item Could it be that maybe nothing is wrong, and I just need to run over a
-very large parameter space? It is somewhat distressing to not be able to get an
-okay convergence by hand.
+\item Root finding via binary search seems to be yielding good results.
+	Exhaustive iteration should not be necessary.
+\item One-to-one correspondence with ZDC z-vertex distribution seems more
+	straightforward in simple beam profile model, but this relationship is more
+	complex with a more complex beam profile.
+\item It seems problematic that $\beta^{*}$ appears to vary significantly with
+	beam displacement. Is this a unphysical/a problem, or is it acceptable?
+\item The simple beam profile model indicates no significant variance of
+	$\beta^{*}$ with beam displacement, but the realistic profile model does.
 \end{itemize}
 \end{frame}
 
