@@ -1,0 +1,49 @@
+\section{Status}
+\label{ch:Status}
+
+\begin{frame}{Status}
+	\textbf{From last time:}
+\begin{itemize}
+	\item Initial trials with Data Derived Bunch z-profiles results in bad matching
+		\begin{itemize}
+			\item Could this be because bunch models are not overlapping at z = 0?
+			\item Are Beam Profiles appropriately centered?
+			\item It would be nice to determine, before exhaustive iteration, if
+				these profiles are even viable (more on this later)
+		\end{itemize}
+	\item Can we improve performance with a simple lookup, as opposed to TGraph::Eval?
+	\item Profiles might introduce artifacts resembling crossing angles/different
+		values for $\beta^{*}$.
+\end{itemize}
+\textbf{To Do:}
+\begin{itemize}
+	\item Confirm that bunches are interacting over the right amount of time
+	\item Confirm that new centering of the bunches results in beam overlap at
+		z=0 occurs at the global maximum of the bunch profile
+	\item Explore options for convergence with the new bunch profiles, compare
+		to old profiles
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Progress}
+	\begin{itemize}
+    \item Density lookup has been implemented, code now runs nice and fast
+		\item Direct comparison between beam profiles from WCM data + simple model
+			are ready - maybe this provides some insight?
+		\item Studied bunch profiles - although all profiles line up relative to
+			each-other, the maximum of the bunch profile was not centered.
+		\item New method:
+			\begin{itemize}
+				\item Find global maxima in WCM profile
+				\item Build profile starting from the center, moving left and right
+				\item Stop when we hit the edge of the data set
+				\item The rest of the profile is set to "0"
+				\item Possible option (to account for beam gas, peripheral bunch
+					distributions in Z):
+					\begin{itemize}
+						\item Sample background of WCM profile, and fill the peripheral bunch
+							distribution with random fluctuations based on sampled region
+					\end{itemize}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
