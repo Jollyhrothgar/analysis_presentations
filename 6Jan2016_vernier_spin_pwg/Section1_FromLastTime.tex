@@ -1,0 +1,49 @@
+\section{From Last Time}
+\label{Section1_FromLastTime}
+
+\begin{frame}
+\frametitle{From Last Time}
+\begin{itemize}
+	\item Explored various parameteterizations of the beam z-profile
+	\item Fits show same results as data driven method, but they are wrong
+	\item Simple gaussian model produces different results when used in Amaresh's
+		framework vs my framework
+	\item Machinery in place for rootfinding, minimization of differences between
+		simulation and data.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{From Last Time}
+
+\textbf{Homework:} \\
+I was tasked to figure out why the simple gaussian model looks wrong - there
+should be a symmetric ZDC z-profile gaussian, centered at z = 0, if model is
+implimented correctly.\\
+\textbf{Progress:} \\
+I found the problem in the code - the difference between my method, and
+Amaresh's method was how we handled normalization. As we know, gaussians have
+normalization dependant on the width of the distriubtion, but this width gains
+additional z-dependance when considering the $\beta^*$ squeeze effect. I
+implimented this, and now distributions match very closely.\\
+\textbf{New:}
+Last time, I mentioned that multiple-collisions do not effect the resultant
+distributions. I was wrong - so this parameter has been added back into the
+simulation.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parameter Space}
+	\begin{itemize}
+		\item Since I have not done the multiple collisions correction myself, I
+			use the Run 15 numbers, and create a graph of scan-step vs multiple
+			collisions rate, from which I interpolate the rate. To account for
+			luminosity shifts, I allow the parameter to vary by a factor of 50\%.
+		\item Care should be taken, as Run 15 had a higher average luminosity by a
+			factor of 2, with respect to Run 12.
+		\item Because distributions are generated randomly, there is some
+			fluctuation in the final spectra. Therefore, we not halt the simualtion
+			after 10 iterations, Which corresponds to the binary search step reaching
+			a size of less than 1\% of the value of the original seed parameter.
+	\end{itemize}
+\end{frame}
+
