@@ -1,11 +1,11 @@
 \documentclass{beamer}
-\usetheme{Boadilla}
+\usetheme{metropolis}
 
 % Preamble %
-\input{include_package}
+\input{"./packages.tex"}
 
 % Environment Setup %
-\input{sections/title}
+\input{"./title.tex"}
 
 \begin{document}
 
@@ -20,9 +20,12 @@
 \tableofcontents
 \end{frame}
 
-\input{sections/Section1_FromLastTime}
-\input{sections/Section2_Distributions}
-\input{sections/Conclusion}
-\input{sections/Backup}
+\input{"./00_analysis_overview.tex"}
+\input{"./01_from_last_time.tex"}
+\input{"./02_distributions.tex"}
+\input{"./conclusion.tex"}
+
+\appendix
+\input{"./backup.tex"}
 
 \end{document}
